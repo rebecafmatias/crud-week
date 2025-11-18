@@ -7,7 +7,6 @@ class DogsBreedModel(Base):
 
     id = Column(Integer,primary_key=True)
     breed_name = Column(String,nullable=False)
-    gender = Column(String,nullable=False)
     origin_country = Column(String,nullable=True)
     colors = Column(String,nullable=True)
     description = Column(String,nullable=True)
