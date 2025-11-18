@@ -2,8 +2,9 @@ def seed_dogs_breed():
     
     from databse import SessionLocal
     from models import DogsBreedModel
+    from schema import DogsBreedSchema
 
-    dog_breed = [
+    raw_dog_breeds = [
         DogsBreedModel(
             breed_name= "Golden Retriever",
             origin_country= "Scotland",
@@ -25,10 +26,16 @@ def seed_dogs_breed():
             origin_country= "Germany",
             colors= "Black and Tan, Sable, Black",
             description= "Intelligent, protective, highly trainable working dog.",
-            avg_life_range= 11.0,
+            avg_life_range= "11.0",
             avg_weight= 32.0
         )
     ]
     session = SessionLocal()
-    session.add_all(dog_breed) #add_all pois estou passando uma lista de registros pra inserir
+    # validated_dogs_breed = []
+    
+    # for dog_breed in raw_dog_breeds:
+    #     validated_data = DogsBreedModel(**dog_breed)
+    #     validated_dogs_breed.append(DogsBreedModel(**validated_data.model_dump()))
+
+    session.add_all(raw_dog_breeds) #add_all pois estou passando uma lista de registros pra inserir
     session.commit()

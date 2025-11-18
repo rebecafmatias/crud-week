@@ -1,5 +1,4 @@
 from databse import engine, Base
-from models import DogsBreedModel 
 from seeds import seed_dogs_breed
 
 # A importação faz o SQLAlchemy registrar os modelos dentro do Base.metadata
