@@ -31,11 +31,6 @@ def seed_dogs_breed():
         )
     ]
     session = SessionLocal()
-    # validated_dogs_breed = []
-    
-    # for dog_breed in raw_dog_breeds:
-    #     validated_data = DogsBreedModel(**dog_breed)
-    #     validated_dogs_breed.append(DogsBreedModel(**validated_data.model_dump()))
 
     session.add_all(raw_dog_breeds) #add_all pois estou passando uma lista de registros pra inserir
     session.commit()
