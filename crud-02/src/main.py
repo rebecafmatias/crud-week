@@ -1,4 +1,5 @@
-from src.database import engine, Base
+from database import engine, Base
+import models # precisamos chama para que crie as tabelas do arquivo de models.py
 
 def main():
     print("Initializing database...")
