@@ -2,7 +2,6 @@ def seed_dogs_breed():
     
     from databse import SessionLocal
     from models import DogsBreedModel
-    from schema import DogsBreedSchema
 
     raw_dog_breeds = [
         DogsBreedModel(
