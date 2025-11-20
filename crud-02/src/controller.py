@@ -2,6 +2,9 @@ from crud import get_all_cities, get_city_by_id, update_city_by_id, create_new_c
 from sqlalchemy.orm import Session
 
 def get_crud_action(db: Session, action: str, id: int, city: dict):
+    
+    print(f"Preparing to {action}...")
+
     if action.lower() == "get":
 
         if id:
