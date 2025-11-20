@@ -108,4 +108,10 @@ As dependências atuais (conforme `pyproject.toml`) são:
 - `sqlalchemy >=2.0.44, <3.0.0`
 - `pydantic >=2.12.4, <3.0.0`
 
+## Licença
+
+Este repositório segue o arquivo LICENSE na raiz. 
+
+
+
 
