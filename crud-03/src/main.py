@@ -15,15 +15,28 @@ def main(db: Session, crud_action: str, id: int, crud_value: dict):
 
 if __name__ == "__main__":
     db = SessionLocal()
+
+    # Your crud action options are: ["create","update","get","delete"]
     crud_action = "create"
+
+    # Specify an ID if you want to get, update or delete a value by id
+
     id = None
+
+    # Create a dict with the information you want to create or update on the db
+
     crud_value = {
-        "name": "Rebeca Feitosa Matias",
-        "birth_gender": "F",
-        "birthdate": date(1997, 10, 28),
-        "address": "Street example, 111",
+        "name": "Sheldon Cooper",
+        "birth_gender": "M",
+        "birthdate": date(1980, 2, 26),
+        "address": "Street example, 222",
         "start_date": date(2025,7, 1),
-        "position": "Data Engineer",
+        "position": "Physicist",
         "monthly_salary": 100000
-    }
+    } ## creating example
+
+    # crud_value = {
+    #     "position": "Professor"
+    # } ## updating by id example
+
     main(db,crud_action,id,crud_value)
