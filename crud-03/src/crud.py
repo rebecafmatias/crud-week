@@ -8,6 +8,8 @@ def create_value(db: Session,value_to_create: dict):
     db.commit()
     db.refresh(db_value)
 
+    return db_value
+
 def get_all(db: Session):
     return db.query(EmployeesModel).all()
 

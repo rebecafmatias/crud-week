@@ -2,7 +2,7 @@ from sqlalchemy import create_engine, MetaData
 from sqlalchemy.orm import sessionmaker, declarative_base
 
 # Informar o path do database
-SQLALCHEMY_DATABASE_URL = 'sqlite:///../company_hr.db'
+SQLALCHEMY_DATABASE_URL = 'sqlite:///company_hr.db'
 
 # Criar engine responsável por abrir a conexão com o banco. Ela sabe onde o banco está e qual driver usar e como se comunicar.
 # Ponto central que o SQLAlchemy utiliza para todos as operações do crud.
