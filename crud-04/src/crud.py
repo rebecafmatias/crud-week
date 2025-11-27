@@ -38,3 +38,9 @@ def delete_record(db: Session, model_class: Any, id: int):
         return None
     
     return db_to_delete
+
+def get_record(db: Session, model_class: Any):
+    return db.query(model_class).all()
+
+def get_record_by_id(db: Session, model_class: Any, id: int):
+    return db.query(model_class).filter(model_class.id==id).first()
