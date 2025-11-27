@@ -24,5 +24,5 @@ def crud_controller(db: Session, model_class: Any, crud_type: str, id: int, db_v
         else:
             crud.get_record_by_id(db,model_class,id)
 
-    elif crud == "delete":
+    elif crud_type == "delete":
         crud.delete_record(db,model_class,id)
