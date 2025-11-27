@@ -15,6 +15,9 @@ class StoreModel(Base):
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
     updatedAt = Column(DateTime(timezone=True),onupdate=func.now())
 
+    def __repr__(self):
+        return f"Store(id={self.id}, nome='{self.name}', address='{self.address}')"
+
 class EmployeeModel(Base):
     __tablename__ = "employee"
 
@@ -26,3 +29,6 @@ class EmployeeModel(Base):
     storeId = Column(Integer,ForeignKey("store.id"))
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
     updatedAt = Column(DateTime(timezone=True),onupdate=func.now())
+
+    def __repr__(self):
+        return f"Employee(id={self.id}, nome='{self.name}', cargo='{self.position}')"
