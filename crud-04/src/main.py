@@ -14,8 +14,8 @@ if __name__ == "__main__":
 
     db = SessionLocal()
     model_class = models.EmployeeModel
-    crud_type = "create"
-    id = None
+    crud_type = "get"
+    id = 1
     # db_value = {
     #     "name": "Big Book Store",
     #     "address": "Av. Beira Mar Norte, 1500",
