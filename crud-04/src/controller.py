@@ -6,7 +6,7 @@ def crud_controller(db: Session, model_class: Any, crud_type: str, id: int, db_v
 
     crud_types_list = ['create','get','delete','update']
 
-    if type not in crud_types_list:
+    if crud_type not in crud_types_list:
         print(f"CRUD type {crud_type} chosen was not found.")
         print(f"Pick one of those and try again: {crud_types_list}.")
         

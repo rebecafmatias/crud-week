@@ -10,7 +10,7 @@ def main(db: Session, model_class: Any, crud_type: str, id: int, db_value: dict)
     controller.crud_controller(db,model_class,crud_type,id,db_value)
 
 if __name__ == "__main__":
-    db = SessionLocal
+    db = SessionLocal()
     model_class = models.StoreModel
     crud_type = "create"
     id = None

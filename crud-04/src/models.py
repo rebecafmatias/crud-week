@@ -15,8 +15,6 @@ class StoreModel(Base):
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
     updatedAt = Column(DateTime(timezone=True),onupdate=func.now())
 
-    employees = relationship("EmployeeModel", back_populates="storeId") 
-
 class EmployeeModel(Base):
     __tablename__ = "employee"
 
@@ -28,5 +26,3 @@ class EmployeeModel(Base):
     storeId = Column(Integer,ForeignKey("store.id"))
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
     updatedAt = Column(DateTime(timezone=True),onupdate=func.now())
-
-    stores = relationship("StoreModel", back_populates="employees")
