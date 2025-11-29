@@ -18,4 +18,19 @@ def create_record(db: Session, model_class: Any, data_value: dict):
     db.add(result)
     db.commit()
     db.refresh(result)
+
+    return result
+
+def update_record(db: Session, model_class: Any, id: int, data_value: dict):
+    result = db.query(model_class).filter(model_class.id==id).first()
+
+    if result:
+        for key,value in data_value.items():
+            setattr(result,key,value)
     
+    db.commit()
+    db.refresh(result)
+
+    return result
+
+def delete_record(db: Session, model_cl)
