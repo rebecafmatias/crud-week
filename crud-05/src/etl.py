@@ -1,7 +1,5 @@
 import csv
 
-csv_path = '..\data\sales.csv'
-
 def open_csv(path:str,encondig_type=str):
     
     with open(path, 'r', encoding=encondig_type) as file:
