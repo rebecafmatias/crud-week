@@ -18,12 +18,14 @@ def main(db: Session, model_class: Any, crud_action: str, id: int, crud_value: A
 if __name__ == "__main__":
     db = database.SessionLocal()
     model_class = models.SalesModel
-    crud_action = "batch"
-    id = None
+    crud_action = "update"
+    id = 5
     csv_path = '..\data\sales.csv'
     data_batch_list = etl.open_csv(csv_path,'utf-8')
     final_data_list = etl.calculate_total_sales(data_batch_list)
-    crud_value = final_data_list
+    crud_value = {
+        "status": "Completed"
+    }
     # {
     #     "customer_name": "Rebeca F",
     #     "product": "Notebook Dell G15",
