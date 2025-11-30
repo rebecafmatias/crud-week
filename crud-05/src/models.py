@@ -5,7 +5,7 @@ from database import Base
 class SalesModel(Base):
     __tablename__ = "sales"
 
-    order_id = Column(Integer,nullable=False)
+    id = Column(Integer,nullable=False)
     customer_name = Column(String,nullable=False)
     product = Column(String,nullable=False)
     quantity = Column(Integer, nullable=False)
@@ -15,4 +15,5 @@ class SalesModel(Base):
     updatedAt = Column(DateTime(timezone=True),onupdate=func.now())
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
 
-    
+    def __repr__(self):
+        return f"Sale(id={self.id},customer='{self.customer_name}',product='{self.product}')"
