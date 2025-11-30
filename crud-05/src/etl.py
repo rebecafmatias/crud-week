@@ -1,4 +1,5 @@
 import csv
+from datetime import datetime
 
 def open_csv(path:str,encondig_type=str):
     
@@ -15,8 +16,13 @@ def calculate_total_sales(data_list:list):
         temp_sales_dict = i
         qty = int(i["quantity"])
         unit = float(i["unit_price"])
+        string_date = i["sale_date"]
         total_price = qty*unit
         temp_sales_dict["total_price"] = total_price
+        temp_sales_dict["quantity"] = qty
+        temp_sales_dict["unit_price"] = unit
+        temp_sales_dict["sale_date"] = datetime.strptime(string_date,'%Y-%m-%d').date()
+        
         final_data_list.append(temp_sales_dict)
     
     return final_data_list
