@@ -3,6 +3,7 @@ import controller
 import models
 from sqlalchemy.orm import Session
 from typing import Any
+from datetime import date
 
 def main(db: Session, model_class: Any, crud_action: str, id: int, crud_value: dict):
     print('Initializing database...')
@@ -19,6 +20,12 @@ if __name__ == "__main__":
     crud_action = "create"
     id = None
     crud_value = {
-        
+        "customer_name": "Rebeca F",
+        "product": "Notebook Dell G15",
+        "quantity": 1,
+        "unit_price": 4500.00,
+        "status": "Completed",
+        "sale_date": date(2025, 11, 25),
+        "total_price": 4500.00
     }
-    main()
+    result = main(db,model_class,crud_action,id,crud_value)
