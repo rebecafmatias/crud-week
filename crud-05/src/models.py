@@ -12,6 +12,7 @@ class SalesModel(Base):
     unit_price = Column(Float, nullable=False)
     status = Column(String, nullable=False)
     sale_date = Column(Date,nullable=False)
+    total_price = Column(Float,nullable=False)
     updatedAt = Column(DateTime(timezone=True),onupdate=func.now())
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
 
