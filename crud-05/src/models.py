@@ -5,7 +5,7 @@ from database import Base
 class SalesModel(Base):
     __tablename__ = "sales"
 
-    id = Column(Integer,nullable=False)
+    id = Column(Integer,primary_key=True)
     customer_name = Column(String,nullable=False)
     product = Column(String,nullable=False)
     quantity = Column(Integer, nullable=False)
