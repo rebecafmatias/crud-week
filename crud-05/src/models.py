@@ -18,3 +18,12 @@ class SalesModel(Base):
 
     def __repr__(self):
         return f"Sale(id={self.id},customer='{self.customer_name}',product='{self.product}')"
+    
+class OrderHistoryModel(Base):
+    __tablename__ = "order_history"
+
+    id = Column(Integer, primary_key=True)
+    order_id = Column(Integer, ForeignKey("sales.id"))
+    status = Column(String,nullable=False)
+    statusDateTime = Column(DateTime(timezone=True),nullable=False) 
+    createdAt = Column(DateTime(timezone=True),server_default=func.now())
