@@ -10,7 +10,7 @@ fake = Faker('pt_BR')
 # --- CONFIGURAÇÕES ---
 QTD_VENDAS = 50
 QTD_UPDATES = 30
-CAMINHO_PASTA = 'data' # Certifique-se de criar essa pasta antes!
+CAMINHO_PASTA = '../data' # Certifique-se de criar essa pasta antes!
 
 def gerar_massa_de_dados():
     # Garante que a pasta existe

@@ -6,6 +6,7 @@ class SalesModel(Base):
     __tablename__ = "sales"
 
     id = Column(Integer,primary_key=True)
+    order_id = Column(Integer, nullable=False,unique=True)
     customer_name = Column(String,nullable=False)
     product = Column(String,nullable=False)
     quantity = Column(Integer, nullable=False)
@@ -23,7 +24,7 @@ class OrderHistoryModel(Base):
     __tablename__ = "order_history"
 
     id = Column(Integer, primary_key=True)
-    order_id = Column(Integer, ForeignKey("sales.id"))
+    order_id = Column(Integer, ForeignKey("sales.order_id"))
     status = Column(String,nullable=False)
     statusDateTime = Column(DateTime(timezone=True),nullable=False) 
     createdAt = Column(DateTime(timezone=True),server_default=func.now())
