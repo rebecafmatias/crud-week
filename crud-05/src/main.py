@@ -4,7 +4,7 @@ import models
 import etl
 from sqlalchemy.orm import Session
 from typing import Any
-from datetime import date
+import os
 
 def main(db: Session, model_class: Any, crud_action: str, id: int, crud_value: Any):
     print('Initializing database...')
@@ -18,14 +18,20 @@ def main(db: Session, model_class: Any, crud_action: str, id: int, crud_value: A
 if __name__ == "__main__":
     db = database.SessionLocal()
     model_class = models.SalesModel
-    crud_action = "delete"
+    crud_action = "batch"
     id = 16
-    csv_path = '..\data\sales.csv'
+    # 1. Descobre onde o arquivo main.py está (pasta src)
+    DIR_DO_SCRIPT = os.path.dirname(os.path.abspath(__file__))
+
+    # 2. Constrói o caminho voltando um nível de forma segura
+    # (src -> .. -> data -> arquivo)
+    csv_path = os.path.join(DIR_DO_SCRIPT, '..', 'data', 'orders_new.csv')
     data_batch_list = etl.open_csv(csv_path,'utf-8')
     final_data_list = etl.calculate_total_sales(data_batch_list)
-    crud_value = {
-        "status": "Completed"
-    }
+    crud_value = final_data_list
+    # crud_value = {
+    #     "status": "Completed"
+    # }
     # {
     #     "customer_name": "Rebeca F",
     #     "product": "Notebook Dell G15",
