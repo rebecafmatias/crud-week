@@ -1,7 +1,7 @@
 import csv
 from datetime import datetime
 
-def open_csv(path:str,encondig_type=str):
+def open_csv(path:str,encondig_type:str):
     
     with open(path, 'r', encoding=encondig_type) as file:
         reader = csv.DictReader(file)
@@ -32,8 +32,9 @@ def altering_updates_data_type(data_list:list):
 
     for i in data_list:
         temp_log_hist = i
+        string_datetime = i["statusDateTime"]
         order_id = int(i["order_id"])
-        statusDateTime = datetime.strftime(i["statusDateTime"],'%Y-%m-%d hh:mm:ss')
+        statusDateTime = datetime.strftime(string_datetime,'%Y-%m-%d hh:mm:ss')
 
         temp_log_hist["order_id"] = order_id
         temp_log_hist["statusDateTime"] = statusDateTime
