@@ -17,7 +17,7 @@ def main(db: Session, model_class: Any, crud_action: str, id: int, crud_value: A
 
 if __name__ == "__main__":
     db = database.SessionLocal()
-    model_class = models.SalesModel
+    model_class = models.OrderHistoryModel
     crud_action = "batch"
     id = 16
     # 1. Descobre onde o arquivo main.py está (pasta src)
@@ -25,9 +25,10 @@ if __name__ == "__main__":
 
     # 2. Constrói o caminho voltando um nível de forma segura
     # (src -> .. -> data -> arquivo)
-    csv_path = os.path.join(DIR_DO_SCRIPT, '..', 'data', 'orders_new.csv')
+    csv_path = os.path.join(DIR_DO_SCRIPT, '..', 'data', 'logistics_updates.csv')
     data_batch_list = etl.open_csv(csv_path,'utf-8')
-    final_data_list = etl.calculate_total_sales(data_batch_list)
+    # final_data_list = etl.calculate_total_sales(data_batch_list)
+    final_data_list = etl.altering_updates_data_type(data_batch_list)
     crud_value = final_data_list
     # crud_value = {
     #     "status": "Completed"
