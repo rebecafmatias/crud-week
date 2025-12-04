@@ -34,7 +34,7 @@ def altering_updates_data_type(data_list:list):
         temp_log_hist = i
         string_datetime = i["statusDateTime"]
         order_id = int(i["order_id"])
-        statusDateTime = datetime.strftime(string_datetime,'%Y-%m-%d hh:mm:ss')
+        statusDateTime = datetime.strptime(string_datetime,'%Y-%m-%d %H:%M:%S')
 
         temp_log_hist["order_id"] = order_id
         temp_log_hist["statusDateTime"] = statusDateTime
