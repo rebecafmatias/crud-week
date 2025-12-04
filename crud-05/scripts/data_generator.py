@@ -105,8 +105,8 @@ def gerar_massa_de_dados():
 
         row = {
             "order_id": selected_id,
-            "new_status": new_status,
-            "event_date": event_date.strftime("%Y-%m-%d %H:%M:%S")
+            "status": new_status,
+            "statusDateTime": event_date.strftime("%Y-%m-%d %H:%M:%S")
         }
         updates_data.append(row)
         

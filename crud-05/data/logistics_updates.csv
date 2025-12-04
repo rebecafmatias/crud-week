@@ -1,4 +1,4 @@
-order_id,new_status,event_date
+order_id,status,statusDateTime
 3313,Processing,2025-11-05 08:50:23
 3331,Cancelled,2025-11-22 18:56:06
 3337,Cancelled,2025-11-28 05:56:13
