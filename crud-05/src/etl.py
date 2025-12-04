@@ -27,3 +27,18 @@ def calculate_total_sales(data_list:list):
     
     return final_data_list
 
+def altering_updates_data_type(data_list:list):
+    final_data_list = []
+
+    for i in data_list:
+        temp_log_hist = i
+        order_id = int(i["order_id"])
+        statusDateTime = datetime.strftime(i["statusDateTime"],'%Y-%m-%d hh:mm:ss')
+
+        temp_log_hist["order_id"] = order_id
+        temp_log_hist["statusDateTime"] = statusDateTime
+
+        final_data_list.append(temp_log_hist)
+    
+    return final_data_list
+
