@@ -52,4 +52,23 @@ logistics-sla-pipeline/
 ├── pyproject.toml         # Project configuration
 └── poetry.lock            # Dependency lock file
 ````
+### Key Features
+
+**Smart Data Generator (State Machine)**
+
+To ensure realistic testing, a custom script (``scripts/generate_data.py``) was built using ``Faker``.
+
+- Logic: It implements a State Machine to prevent illogical status jumps.
+
+- Example: An order cannot go from Pending directly to Delivered. The script respects the flow Pending -> Processing -> Shipped -> Delivered, while also ensuring chronological consistency (e.g., delivery_date > sale_date).
+
+**ETL Pipeline**
+
+The core module handles:
+
+- Reading raw CSV files.
+
+- Type Casting: Safely converting strings to native Python types (Datetime, Integer, Float).
+
+- Business Logic: Updating the ``sales`` table only after successfully logging the event in ``order_history``.
 
