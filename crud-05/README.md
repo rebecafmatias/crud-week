@@ -82,9 +82,18 @@ The core module handles:
 2. Generate mock data:
    ```bash
    python -m scripts.generate_data
-# This will create consistent CSV files in the /data folder.
+    # This will create consistent CSV files in the /data folder.
    ```
 3. Run the pipeline:
    ```bash
     python -m src.main
     ```
+
+**Roadmap**
+[ ] Implement Airflow for task orchestration.
+
+[ ] Add a Control Table to log processed files and ensure idempotency.
+
+[ ] Create an Analytics layer (View) to calculate Average SLA by Region.
+
+[ ] Migrate heavy processing modules to PySpark.
