@@ -97,3 +97,6 @@ The core module handles:
 [ ] Create an Analytics layer (View) to calculate Average SLA by Region.
 
 [ ] Migrate heavy processing modules to PySpark.
+
+### Author
+Developed as a portfolio project to demonstrate Data Engineering capabilities, focusing on Python, SQL, and Data Modeling.
