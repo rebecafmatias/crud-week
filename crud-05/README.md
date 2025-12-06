@@ -72,3 +72,19 @@ The core module handles:
 
 - Business Logic: Updating the ``sales`` table only after successfully logging the event in ``order_history``.
 
+**How to Run**
+
+1. Install dependencies:
+   ```bash
+   poetry install
+   ```
+
+2. Generate mock data:
+   ```bash
+   python -m scripts.generate_data
+# This will create consistent CSV files in the /data folder.
+   ```
+3. Run the pipeline:
+   ```bash
+    python -m src.main
+    ```
